@@ -11,9 +11,23 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-
 import java.util.ArrayList;
 import java.util.List;
+
+/*
+class RawPasswordEncoder implements PasswordEncoder {
+
+   @Override
+   public String encode(CharSequence rawPassword) {
+       return rawPassword.toString();
+   }
+
+   @Override
+   public boolean matches(CharSequence rawPassword, String encodedPassword) {
+       return rawPassword.toString().equals(encodedPassword);
+   }
+}
+//*/
 
 @Configuration
 @EnableWebSecurity
@@ -21,6 +35,7 @@ public class SpringSecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
+        //return new RawPasswordEncoder();    // Algoritmo Raw
         return new BCryptPasswordEncoder();    // Algoritmo BCrypt
     }
 
