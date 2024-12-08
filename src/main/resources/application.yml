@@ -7,6 +7,11 @@ spring :
     username : root
     password :
 
+  security :
+    user :
+      name : root
+      password : tecsup
+
 app:
   storage:
     path: /Users/jgomez/var/data/
