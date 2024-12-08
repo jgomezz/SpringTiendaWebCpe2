@@ -1,7 +1,6 @@
 package pe.edu.tecsup.tienda.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 
@@ -11,7 +10,8 @@ import org.springframework.security.core.GrantedAuthority;
 public class Rol implements GrantedAuthority {
 
     private static final long serialVersionUID = 1L;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
 
